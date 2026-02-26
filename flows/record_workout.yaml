@@ -1,7 +1,7 @@
 # flows/record_workout.yaml
 # 测试记录训练流程
 
-appId: com.lwyxzm.fitness-tracker
+appId: com.anonymous.fitness-tracker
 ---
 - launchApp
 

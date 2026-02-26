@@ -1,7 +1,7 @@
 # flows/add_exercise.yaml
 # 测试添加锻炼项目流程
 
-appId: com.lwyxzm.fitness-tracker
+appId: com.anonymous.fitness-tracker
 ---
 - launchApp
 

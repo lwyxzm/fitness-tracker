@@ -1,7 +1,7 @@
 # flows/full_test_suite.yaml
 # 完整测试套件
 
-appId: com.lwyxzm.fitness-tracker
+appId: com.anonymous.fitness-tracker
 ---
 - launchApp
 

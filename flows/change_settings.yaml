@@ -1,7 +1,7 @@
 # flows/change_settings.yaml
 # 测试设置功能
 
-appId: com.lwyxzm.fitness-tracker
+appId: com.anonymous.fitness-tracker
 ---
 - launchApp
 

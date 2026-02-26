@@ -1,7 +1,7 @@
 # flows/view_stats.yaml
 # 测试查看统计功能
 
-appId: com.lwyxzm.fitness-tracker
+appId: com.anonymous.fitness-tracker
 ---
 - launchApp
 
