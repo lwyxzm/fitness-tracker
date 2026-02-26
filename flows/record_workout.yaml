@@ -1,0 +1,72 @@
+# flows/record_workout.yaml
+# 测试记录训练流程
+
+appId: com.lwyxzm.fitness-tracker
+---
+- launchApp
+
+# 等待应用加载
+- waitForAnimationToEnd:
+    timeout: 5000
+
+# 点击中央 + 按钮
+- tapOn:
+    id: "add-workout-button"
+
+# 等待选择页面
+- waitForAnimationToEnd:
+    timeout: 2000
+
+# 选择一个锻炼项目（如果没有，先添加一个）
+- runFlow:
+    when:
+      visible: "深蹲测试"
+    commands:
+      - tapOn: "深蹲测试"
+- runFlow:
+    when:
+      notVisible: "深蹲测试"
+    commands:
+      # 添加新项目
+      - tapOn: "项目"
+      - tapOn:
+          id: "add-button"
+      - tapOn: "项目名称（如：深蹲）"
+      - inputText: "卧推"
+      - tapOn: "胸部"
+      - tapOn: "添加"
+      - tapOn: "卧推"
+
+# 输入重量
+- tapOn:
+    id: "weight-input"
+- clearState
+- inputText: "60"
+
+# 输入次数
+- tapOn:
+    id: "reps-input"
+- clearState
+- inputText: "10"
+
+# 添加一组
+- tapOn: "添加一组"
+
+# 输入第二组
+- tapOn:
+    id: "weight-input-2"
+- inputText: "60"
+
+- tapOn:
+    id: "reps-input-2"
+- inputText: "8"
+
+# 点击保存
+- tapOn: "保存记录"
+
+# 确认成功
+- assertVisible: "训练记录已保存"
+- tapOn: "确定"
+
+# 截图
+- takeScreenshot: record_workout_success

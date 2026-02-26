@@ -1,0 +1,37 @@
+# flows/add_exercise.yaml
+# 测试添加锻炼项目流程
+
+appId: com.lwyxzm.fitness-tracker
+---
+- launchApp
+
+# 等待应用加载
+- waitForAnimationToEnd:
+    timeout: 5000
+
+# 点击项目 Tab
+- tapOn: "项目"
+
+# 等待页面加载
+- waitForAnimationToEnd:
+    timeout: 2000
+
+# 点击添加按钮
+- tapOn:
+    id: "add-button"
+
+# 输入项目名称
+- tapOn: "项目名称（如：深蹲）"
+- inputText: "深蹲测试"
+
+# 选择分类
+- tapOn: "腿部"
+
+# 点击添加
+- tapOn: "添加"
+
+# 验证项目已添加
+- assertVisible: "深蹲测试"
+
+# 截图
+- takeScreenshot: add_exercise_success

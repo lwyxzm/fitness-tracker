@@ -1,0 +1,35 @@
+# flows/change_settings.yaml
+# 测试设置功能
+
+appId: com.lwyxzm.fitness-tracker
+---
+- launchApp
+
+# 等待应用加载
+- waitForAnimationToEnd:
+    timeout: 5000
+
+# 点击设置 Tab
+- tapOn: "设置"
+
+# 等待页面加载
+- waitForAnimationToEnd:
+    timeout: 2000
+
+# 切换到磅
+- tapOn: "磅 (lbs)"
+
+# 验证已选中
+- assertVisible: "磅 (lbs)"
+
+# 截图
+- takeScreenshot: settings_lbs
+
+# 切换回公斤
+- tapOn: "公斤 (kg)"
+
+# 验证已选中
+- assertVisible: "公斤 (kg)"
+
+# 截图
+- takeScreenshot: settings_kg

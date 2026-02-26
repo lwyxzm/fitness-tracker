@@ -1,0 +1,19 @@
+# flows/full_test_suite.yaml
+# 完整测试套件
+
+appId: com.lwyxzm.fitness-tracker
+---
+- launchApp
+
+# 等待应用加载
+- waitForAnimationToEnd:
+    timeout: 5000
+
+# 运行所有测试
+- runFlow: add_exercise.yaml
+- runFlow: record_workout.yaml
+- runFlow: view_stats.yaml
+- runFlow: change_settings.yaml
+
+# 最终截图
+- takeScreenshot: full_test_complete

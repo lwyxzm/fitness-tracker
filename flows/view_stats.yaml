@@ -1,0 +1,49 @@
+# flows/view_stats.yaml
+# 测试查看统计功能
+
+appId: com.lwyxzm.fitness-tracker
+---
+- launchApp
+
+# 等待应用加载
+- waitForAnimationToEnd:
+    timeout: 5000
+
+# 先添加几个训练记录
+- runFlow: record_workout.yaml
+
+# 添加第二个记录
+- tapOn:
+    id: "add-workout-button"
+- waitForAnimationToEnd:
+    timeout: 2000
+- tapOn: "深蹲测试"
+- tapOn:
+    id: "weight-input"
+- inputText: "65"
+- tapOn:
+    id: "reps-input"
+- inputText: "10"
+- tapOn: "保存记录"
+- tapOn: "确定"
+
+# 点击训练记录查看统计
+- tapOn:
+    text: "深蹲测试"
+    index: 0
+
+# 等待统计页面加载
+- waitForAnimationToEnd:
+    timeout: 3000
+
+# 验证统计数据
+- assertVisible: "训练次数"
+- assertVisible: "最大重量"
+- assertVisible: "平均重量"
+- assertVisible: "总体进步"
+
+# 验证图表存在
+- assertVisible: "重量趋势"
+
+# 截图
+- takeScreenshot: view_stats_success
